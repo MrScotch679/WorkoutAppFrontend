@@ -1,3 +1,5 @@
 export const useAuth = () => {
-	return null
+	return {
+		isAuth: false
+	}
 }
