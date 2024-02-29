@@ -22,6 +22,9 @@
 		"baseUrl": "src",
 		"paths": {
 			"@asserts/*": ["/assets/*"],
+			"@constants/*": ["/constants/*"],
+			"@services/*": ["/services/*"],
+			"@providers/*": ["/providers/*"],
 			"@components/*": ["/components/*"],
 			"@hooks/*": ["/hooks/*"]
 		}
