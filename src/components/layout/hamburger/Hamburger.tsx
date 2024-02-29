@@ -1,19 +1,22 @@
-import { useState } from 'react'
-import styles from './Hamburger.module.scss'
-
-import { RxCross2 } from 'react-icons/rx'
+import { memo } from 'react'
 import { HiMenuAlt3 } from 'react-icons/hi'
+import { RxCross2 } from 'react-icons/rx'
+
+import { useClickOutside } from 'hooks/useClickOutside'
+
 import { Menu } from '../menu/Menu'
 
-export const Hamburger = () => {
-	const [isOpen, setIsOpen] = useState(false)
+import styles from './Hamburger.module.scss'
+
+export const Hamburger = memo(() => {
+	const { ref, isShow, setIsShow } = useClickOutside(false)
 
 	return (
-		<div className={styles.wrapper}>
-			<button onClick={() => setIsOpen(prev => !prev)}>
-				{isOpen ? <RxCross2 color='white' /> : <HiMenuAlt3 color='white' />}
+		<div className={styles.wrapper} ref={ref}>
+			<button onClick={() => setIsShow(prev => !prev)}>
+				{isShow ? <RxCross2 /> : <HiMenuAlt3 />}
 			</button>
-			<Menu isPopupOpen={isOpen} />
+			<Menu isPopupOpen={isShow} setPopupState={setIsShow} />
 		</div>
 	)
-}
+})

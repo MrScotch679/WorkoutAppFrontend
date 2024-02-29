@@ -10,5 +10,10 @@
 		border: none;
 		outline: none;
 		cursor: pointer;
+
+		> svg {
+			font-size: 25px;
+			color: $white;
+		}
 	}
 }

@@ -1,21 +1,33 @@
-import { FaArrowLeft } from 'react-icons/fa6'
+import { FC, memo } from 'react'
+import { BiArrowBack } from 'react-icons/bi'
+import { FiUser } from 'react-icons/fi'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-import styles from './Header.module.scss'
-import { useAuth } from 'hooks/useAuth'
 import { Hamburger } from '../hamburger/Hamburger'
 
-export const Header = () => {
-	const { isAuth } = useAuth()
+import styles from './Header.module.scss'
 
-	console.log('isAuth :>> ', isAuth)
+interface HeaderProps {
+	backLink: string
+}
+
+export const Header: FC<HeaderProps> = memo(({ backLink = '/' }) => {
+	const { pathname } = useLocation()
+	const navigate = useNavigate()
 
 	return (
 		<header className={styles.header}>
-			<button>
-				<FaArrowLeft color='white' />
-			</button>
+			{pathname !== '/' ? (
+				<button onClick={() => navigate(backLink)}>
+					<BiArrowBack />
+				</button>
+			) : (
+				<button onClick={() => navigate('/profile')}>
+					<FiUser />
+				</button>
+			)}
 
 			<Hamburger />
 		</header>
 	)
-}
+})
