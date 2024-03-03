@@ -1,5 +1,12 @@
 import cx from 'clsx'
-import { FC, PropsWithChildren, memo, useEffect, useState } from 'react'
+import {
+	FC,
+	PropsWithChildren,
+	ReactElement,
+	memo,
+	useEffect,
+	useState
+} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import cookiesService from 'services/cookies.service'
 
@@ -12,18 +19,15 @@ import { ScreenRoutes } from 'constants/routes/screen.routes'
 import styles from './Layout.module.scss'
 import { Header } from './header/Header'
 
-interface LayoutProps extends PropsWithChildren {
-	heading?: string
-	backLink?: string
-}
+interface LayoutProps extends PropsWithChildren {}
 
 export const Layout: FC<LayoutProps> = memo(props => {
-	const { children, backLink = '/' } = props
+	const { children } = props
 
 	const [backgroundImage, setBackgroundImage] = useState<string | undefined>(
 		undefined
 	)
-	const [heading, setHeading] = useState<string | undefined>(undefined)
+	const [heading, setHeading] = useState<ReactElement | undefined>(undefined)
 
 	const navigate = useNavigate()
 	const { pathname } = useLocation()
@@ -44,22 +48,23 @@ export const Layout: FC<LayoutProps> = memo(props => {
 		}
 
 		setBackgroundImage(imagesRoutes[pathname].image)
-		setHeading(imagesRoutes[pathname].heading)
+		setHeading(imagesRoutes[pathname].headingComponent)
 	}, [pathname, isAuth])
 
 	return (
-		<section
-			className={cx(styles.wrapper, { [styles.otherPage]: !!heading })}
-			style={{
-				...(backgroundImage && {
-					backgroundImage: `url(${backgroundImage})`
-				})
-			}}
-		>
-			{!isAuthRoute ? <Header backLink={backLink} /> : null}
+		<section className={styles.wrapper}>
 			{heading && (
-				<div className={styles.heading}>
-					<h1 className={styles.heading}>{heading}</h1>
+				<div
+					className={styles.heading}
+					style={{
+						...(backgroundImage && {
+							backgroundImage: `url(${backgroundImage})`
+						})
+					}}
+				>
+					{!isAuthRoute ? <Header /> : null}
+
+					{heading}
 				</div>
 			)}
 

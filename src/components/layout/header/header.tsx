@@ -7,18 +7,16 @@ import { Hamburger } from '../hamburger/Hamburger'
 
 import styles from './Header.module.scss'
 
-interface HeaderProps {
-	backLink: string
-}
+interface HeaderProps {}
 
-export const Header: FC<HeaderProps> = memo(({ backLink = '/' }) => {
+export const Header: FC<HeaderProps> = memo(() => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
 
 	return (
 		<header className={styles.header}>
 			{pathname !== '/' ? (
-				<button onClick={() => navigate(backLink)}>
+				<button onClick={() => navigate('/')}>
 					<BiArrowBack />
 				</button>
 			) : (
