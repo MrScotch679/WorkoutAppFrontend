@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import authService from 'services/auth.service'
+import AuthService from 'services/auth.service'
 
 import { Button } from 'components/ui/button/Button'
 import { Field } from 'components/ui/filed/Field'
@@ -13,7 +13,7 @@ import { ScreenRoutes } from 'constants/routes/screen.routes'
 
 import styles from './Auth.module.scss'
 
-export const Auth = () => {
+export const Auth = memo(() => {
 	const {
 		register,
 		handleSubmit,
@@ -29,7 +29,7 @@ export const Auth = () => {
 	const { mutate, isLoading } = useMutation(
 		['auth'],
 		({ email, password }: { email: string; password: string }) =>
-			authService.authUser(email, password, type),
+			AuthService.authUser(email, password, type),
 		{
 			onSuccess: () => {
 				navigate(ScreenRoutes.HOME)
@@ -77,4 +77,4 @@ export const Auth = () => {
 			</form>
 		</div>
 	)
-}
+})

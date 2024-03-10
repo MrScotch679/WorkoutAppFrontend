@@ -1,3 +1,5 @@
+import { NewExercise } from 'components/screens/new-exercise/NewExercise'
+
 import { Auth, Home, NewWorkout, Profile } from 'components/screens'
 
 import { ScreenRoutes } from 'constants/routes/screen.routes'
@@ -22,14 +24,14 @@ export const routesConfig = [
 		path: ScreenRoutes.PROFILE,
 		component: Profile,
 		isAuth: false
-	} /* 
-	{
-		path: '/new-exercise',
-
-		component: NewExercise,
-		isAuth: true,
 	},
+	{
+		path: ScreenRoutes.NEW_EXERCISE,
+		component: NewExercise,
+		isAuth: true
+	}
 
+	/* 
 	{
 		path: '/workout/:id',
 

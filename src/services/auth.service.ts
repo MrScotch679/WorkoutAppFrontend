@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 
 import { AuthType } from 'constants/auth/auth'
+import { Token } from 'constants/auth/token'
 
 import { apiService } from './api.service'
 
@@ -13,7 +14,7 @@ class AuthService {
 			})
 
 			if (data?.token) {
-				Cookies.set('token', data.token)
+				Cookies.set(Token.TOKEN, data.token)
 			}
 
 			return data

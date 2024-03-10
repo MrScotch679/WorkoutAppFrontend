@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 
 import { AuthHeading } from 'components/screens/auth/heading/AuthHeading.tsx/AuthHeading'
 import { HomeHeading } from 'components/screens/home/home-heading/HomeHeading'
+import { HeadingNewExercise } from 'components/screens/new-exercise/heading-new-exercise/HeadingNewExercise'
 import { ProfileHeading } from 'components/screens/profile/profile-heading/ProfileHeading'
 
 import { ScreenRoutes } from './screen.routes'
@@ -28,6 +29,7 @@ export const imagesRoutes: Record<ScreenRoutes | string, ImagesRoutes> = {
 		headingComponent: <ProfileHeading />
 	},
 	[ScreenRoutes.NEW_EXERCISE]: {
-		image: ''
+		image: '/images/new-exercise-bg.jpg',
+		headingComponent: <HeadingNewExercise />
 	}
 }
