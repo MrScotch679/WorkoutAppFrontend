@@ -1,7 +1,8 @@
+import { useProfile } from '../hooks/useProfile'
+
 import { Loader } from 'components/ui/loader/Loadder'
 
 import { ProfileStatistics } from '../profile-statistics/ProfileStatistics'
-import { useProfile } from '../useProfile'
 
 import styles from './ProfileHeading.module.scss'
 

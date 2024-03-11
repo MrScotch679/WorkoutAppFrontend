@@ -1,10 +1,11 @@
 import cx from 'clsx'
 import { memo } from 'react'
 
+import { useProfile } from './hooks/useProfile'
+
 import { Loader } from 'components/ui/loader/Loadder'
 
 import styles from './Profile.module.scss'
-import { useProfile } from './useProfile'
 
 export const Profile = memo(() => {
 	const { isLoading, data } = useProfile()

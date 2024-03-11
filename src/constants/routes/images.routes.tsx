@@ -22,7 +22,8 @@ export const imagesRoutes: Record<ScreenRoutes | string, ImagesRoutes> = {
 		headingComponent: <AuthHeading />
 	},
 	[ScreenRoutes.NEW_WORKOUT]: {
-		image: ''
+		image: '/images/new-workout-bg.jpg',
+		headingComponent: <div />
 	},
 	[ScreenRoutes.PROFILE]: {
 		image: '/images/profile-bg.jpg',
