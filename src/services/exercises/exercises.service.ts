@@ -3,24 +3,24 @@ import { apiService } from '../api.service'
 class ExercisesService {
 	url: string = '/exercises'
 
-	async getExercises() {
+	getExercises = async () => {
 		return apiService.get(this.url)
 	}
 
-	async getExercise(id: string) {
+	getExercise = async (id: string) => {
 		return apiService.get(`${this.url}/${id}`)
 	}
 
 	// TODO: add types
-	async createExercise(body: any) {
+	createExercise = async (body: any) => {
 		return apiService.post(this.url, body)
 	}
 
-	async updateExercise(id: string, body: any) {
+	updateExercise = async (id: string, body: any) => {
 		return apiService.put(`${this.url}/${id}`, body)
 	}
 
-	async deleteExercise(id: string) {
+	deleteExercise = async (id: string) => {
 		return apiService.delete(`${this.url}/${id}`)
 	}
 }

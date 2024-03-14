@@ -1,15 +1,13 @@
 import { apiService } from '../api.service'
 
-const url = '/workouts'
-
 class WorkoutsService {
 	url: string = '/workouts'
 
-	async getWorkouts() {
+	getWorkouts = async () => {
 		return apiService.get(this.url)
 	}
 
-	async getWorkout(id: string) {
+	getWorkout = async (id: string) => {
 		return apiService.get(`${this.url}/${id}`)
 	}
 
@@ -19,11 +17,11 @@ class WorkoutsService {
 		return apiService.post(this.url, body)
 	}
 
-	async updateWorkout(id: string, body: any) {
+	updateWorkout = async (id: string, body: any) => {
 		return apiService.put(`${this.url}/${id}`, body)
 	}
 
-	async deleteWorkout(id: string) {
+	deleteWorkout = async (id: string) => {
 		return apiService.delete(`${this.url}/${id}`)
 	}
 }
