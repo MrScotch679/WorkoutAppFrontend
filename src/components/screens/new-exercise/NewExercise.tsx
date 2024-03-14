@@ -28,18 +28,16 @@ export const NewExercise: FC<NewExerciseProps> = memo(() => {
 
 	const { isSuccess, isLoading, mutate } = useMutation(
 		['createExercise'],
-		body => ExercisesService.createExercise(body),
+		ExercisesService.createExercise,
 		{
 			onSuccess: () => reset()
 		}
 	)
 
-	const onSubmit = (data: any) => {
-		mutate(data)
-	}
+	const onSubmit = (data: any) => mutate(data)
 
 	return (
-		<div className={'wrapper-inner-page'}>
+		<div className='wrapper-inner-page'>
 			{isSuccess && <Alert text='Exercise created' />}
 
 			<form onSubmit={handleSubmit(onSubmit)}>
