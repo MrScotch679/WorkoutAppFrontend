@@ -4,6 +4,7 @@ export enum ScreenRoutes {
 	NEW_WORKOUT = '/new-workout',
 	PROFILE = '/profile',
 	NEW_EXERCISE = '/new-exercise',
+	EXERCISE = '/exercise',
 	WORKOUT = '/workout',
-	EXERCISE = '/exercise'
+	WORKOUTS = '/workouts'
 }

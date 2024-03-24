@@ -4,11 +4,17 @@ import WorkoutLogService from 'services/workout/workout-log.service'
 
 export const useGetWorkoutDataById = () => {
 	const [queryParameters] = useSearchParams()
-	const currentWorkoutId = queryParameters.get('id') || ''
+	const currentWorkoutId = queryParameters.get('workoutId')
 
 	return useQuery(
 		['getWorkout', currentWorkoutId],
-		() => WorkoutLogService.getWorkoutLog(currentWorkoutId),
+		() => {
+			if (!currentWorkoutId) {
+				return
+			} else {
+				return WorkoutLogService.getWorkoutLog(currentWorkoutId)
+			}
+		},
 		{
 			select: ({ data }) => data
 		}

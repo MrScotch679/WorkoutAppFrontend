@@ -6,10 +6,11 @@ import {
 	useEffect,
 	useState
 } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import cookiesService from 'services/cookies.service'
 
 import { useAuth } from 'hooks/useAuth'
+import { useNavigation } from 'hooks/useNavigate'
 
 import { Token } from 'constants/auth/token'
 import { imagesRoutes } from 'constants/routes/images.routes'
@@ -28,7 +29,7 @@ export const Layout: FC<LayoutProps> = memo(props => {
 	)
 	const [heading, setHeading] = useState<ReactElement | undefined>(undefined)
 
-	const navigate = useNavigate()
+	const { navigate } = useNavigation()
 	const { pathname } = useLocation()
 	const { setIsAuth, isAuth } = useAuth()
 

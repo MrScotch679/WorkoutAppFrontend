@@ -1,8 +1,9 @@
 import { memo, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import { useNavigate } from 'react-router-dom'
 import AuthService from 'services/auth.service'
+
+import { useNavigation } from 'hooks/useNavigate'
 
 import { Button } from 'components/ui/button/Button'
 import { Field } from 'components/ui/filed/Field'
@@ -22,7 +23,7 @@ export const Auth = memo(() => {
 		mode: 'onChange'
 	})
 
-	const navigate = useNavigate()
+	const { navigate } = useNavigation()
 
 	const [type, setType] = useState(AuthType.SIGN_IN)
 

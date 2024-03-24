@@ -10,7 +10,7 @@ export const WorkoutHeading = memo(() => {
 	const { data: workoutLog, isSuccess } = useGetWorkoutDataById()
 
 	return (
-		<div className={styles.workoutHeadingWrapper}>
+		<div className='heading-wrapper'>
 			{isSuccess ? (
 				<div>
 					<time className={styles.time}>{`${workoutLog?.minute} min.`}</time>

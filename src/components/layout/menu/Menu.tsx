@@ -1,9 +1,10 @@
 import cx from 'clsx'
 import { FC, memo } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import cookiesService from 'services/cookies.service'
 
 import { useAuth } from 'hooks/useAuth'
+import { useNavigation } from 'hooks/useNavigate'
 
 import { Token } from 'constants/auth/token'
 
@@ -16,7 +17,7 @@ interface MenuProps {
 }
 
 export const Menu: FC<MenuProps> = memo(({ isPopupOpen, setPopupState }) => {
-	const navigate = useNavigate()
+	const { navigate } = useNavigation()
 	const { setIsAuth } = useAuth()
 
 	const logoutHandler = () => {

@@ -7,7 +7,7 @@ import { Loader } from 'components/ui/loader/Loadder'
 import { WorkoutDetails } from './workout-details/WorkoutDetails'
 
 export const Workout = memo(() => {
-	const { data: workoutLog, isSuccess, error } = useGetWorkoutDataById()
+	const { data: workoutLog, isSuccess } = useGetWorkoutDataById()
 
 	return (
 		<div
@@ -24,7 +24,6 @@ export const Workout = memo(() => {
 				) : (
 					<Loader />
 				)}
-				{/* {errorCompleted && <Alert type='error' text={errorCompleted} />} */}
 			</div>
 		</div>
 	)

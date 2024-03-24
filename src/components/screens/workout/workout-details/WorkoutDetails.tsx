@@ -18,7 +18,7 @@ export const WorkoutDetails = memo(({ exerciseLog }) => {
 			<button
 				aria-label='Move to exercise'
 				onClick={() =>
-					navigation(`${ScreenRoutes.EXERCISE}?id=${exerciseLog.id}`)
+					navigation(`${ScreenRoutes.EXERCISE}?exerciseId=${exerciseLog.id}`)
 				}
 			>
 				<span>{exerciseLog.exercise.name}</span>

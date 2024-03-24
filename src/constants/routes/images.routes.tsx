@@ -1,9 +1,11 @@
 import { ReactElement } from 'react'
 
 import { AuthHeading } from 'components/screens/auth/heading/AuthHeading.tsx/AuthHeading'
+import { ExerciseHeading } from 'components/screens/exercise/components/exercise-heading/ExerciseHeading'
 import { HomeHeading } from 'components/screens/home/home-heading/HomeHeading'
 import { HeadingNewExercise } from 'components/screens/new-exercise/new-exercise-heading/NewExerciseHeading'
 import { ProfileHeading } from 'components/screens/profile/profile-heading/ProfileHeading'
+import { WorkoutListHeading } from 'components/screens/workout-list/workout-list-heading/WorkoutListHeading'
 import { WorkoutHeading } from 'components/screens/workout/workout-heading/WorkoutHeading'
 
 import { ScreenRoutes } from './screen.routes'
@@ -37,5 +39,13 @@ export const imagesRoutes: Record<ScreenRoutes | string, ImagesRoutes> = {
 	[ScreenRoutes.WORKOUT]: {
 		image: '/images/workout-bg.jpg',
 		headingComponent: <WorkoutHeading />
+	},
+	[ScreenRoutes.WORKOUTS]: {
+		image: '/images/workout-bg.jpg',
+		headingComponent: <WorkoutListHeading />
+	},
+	[ScreenRoutes.EXERCISE]: {
+		image: '/images/ex-bg-1.jpg',
+		headingComponent: <ExerciseHeading />
 	}
 }

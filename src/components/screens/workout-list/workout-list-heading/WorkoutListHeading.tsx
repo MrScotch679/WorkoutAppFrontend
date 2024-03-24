@@ -1,9 +1,9 @@
 import { memo } from 'react'
 
-export const HomeHeading = memo(() => {
+export const WorkoutListHeading = memo(() => {
 	return (
 		<div className='heading-wrapper'>
-			<h1>Home</h1>
+			<h1>Workout List</h1>
 		</div>
 	)
 })

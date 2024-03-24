@@ -1,5 +1,6 @@
 import { memo } from 'react'
-import { useNavigate } from 'react-router-dom'
+
+import { useNavigation } from 'hooks/useNavigate'
 
 import { Button } from 'components/ui/button/Button'
 
@@ -8,11 +9,7 @@ import { ScreenRoutes } from 'constants/routes/screen.routes'
 import styles from './Home.module.scss'
 
 export const Home = memo(() => {
-	const navigate = useNavigate()
+	const { navigate } = useNavigation()
 
-	return (
-		<div>
-			<Button onClick={() => navigate(ScreenRoutes.NEW_WORKOUT)}>New</Button>
-		</div>
-	)
+	return <Button onClick={() => navigate(ScreenRoutes.NEW_WORKOUT)}>New</Button>
 })

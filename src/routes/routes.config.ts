@@ -1,3 +1,4 @@
+import { Exercise } from 'components/screens/exercise/Exercise'
 import { NewExercise } from 'components/screens/new-exercise/NewExercise'
 import { WorkoutList } from 'components/screens/workout-list/WorkoutList'
 import { Workout } from 'components/screens/workout/Workout'
@@ -46,12 +47,11 @@ export const routesConfig = [
 		path: '/workouts',
 		component: WorkoutList,
 		isAuth: true
-	}
-	/* 
-	{
-		path: '/exercise/:id',
+	},
 
-		component: SingleExercise,
-		isAuth: true,
-	}, */
+	{
+		path: '/exercise',
+		component: Exercise,
+		isAuth: true
+	}
 ]
