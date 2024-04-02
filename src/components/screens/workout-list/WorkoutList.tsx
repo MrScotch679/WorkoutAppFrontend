@@ -1,4 +1,6 @@
+import cx from 'clsx'
 import { memo } from 'react'
+import { IWorkout } from 'types/workout/workout'
 
 import { useWorkouts } from './hooks/useWorkouts'
 
@@ -11,15 +13,12 @@ export const WorkoutList = memo(() => {
 	const { data, isLoading, isSuccess, createWorkoutLog } = useWorkouts()
 
 	return (
-		<div
-			className='wrapper-inner-page'
-			style={{ paddingLeft: 0, paddingRight: 0 }}
-		>
+		<div className={cx('wrapper-inner-page', 'wrapper-no-padding')}>
 			{isLoading ? <Loader /> : null}
 
 			{isSuccess ? (
-				<div /* className={styles.wrapper} */>
-					{data.map(workout => (
+				<div>
+					{data.map((workout: IWorkout) => (
 						<WorkoutListItem
 							key={workout.id}
 							workout={workout}

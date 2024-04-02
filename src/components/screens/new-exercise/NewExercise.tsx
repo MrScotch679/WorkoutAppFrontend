@@ -1,8 +1,9 @@
 import cx from 'clsx'
-import { FC, memo } from 'react'
+import { memo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ExercisesService from 'services/exercises/exercises.service'
+import { ICreateExercise } from 'types/methods/create-exercise'
 
 import { Alert } from 'components/ui/alert/Alert'
 import { Button } from 'components/ui/button/Button'
@@ -13,16 +14,14 @@ import styles from './NewExercise.module.scss'
 import { exersiceList } from './exercise.config'
 import { getIconPath } from './getIconPath'
 
-interface NewExerciseProps {}
-
-export const NewExercise: FC<NewExerciseProps> = memo(() => {
+export const NewExercise = memo(() => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
 		control
-	} = useForm({
+	} = useForm<ICreateExercise>({
 		mode: 'onChange'
 	})
 
@@ -34,7 +33,7 @@ export const NewExercise: FC<NewExerciseProps> = memo(() => {
 		}
 	)
 
-	const onSubmit = (data: any) => mutate(data)
+	const onSubmit = (data: ICreateExercise) => mutate(data)
 
 	return (
 		<div className='wrapper-inner-page'>

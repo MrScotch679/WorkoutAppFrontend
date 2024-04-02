@@ -7,7 +7,7 @@ import { Loader } from 'components/ui/loader/Loadder'
 import styles from './WorkoutHeading.module.scss'
 
 export const WorkoutHeading = memo(() => {
-	const { data: workoutLog, isSuccess } = useGetWorkoutDataById()
+	const { workoutLog, isSuccess } = useGetWorkoutDataById()
 
 	return (
 		<div className='heading-wrapper'>

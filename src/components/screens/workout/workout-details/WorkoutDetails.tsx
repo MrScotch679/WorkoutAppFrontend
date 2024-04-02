@@ -1,12 +1,17 @@
 import cx from 'clsx'
-import { memo } from 'react'
+import { FC, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { IExerciseLog } from 'types/exercise/exercise-log'
 
 import { ScreenRoutes } from 'constants/routes/screen.routes'
 
 import styles from './WorkoutDetails.module.scss'
 
-export const WorkoutDetails = memo(({ exerciseLog }) => {
+interface IWorkoutDetails {
+	exerciseLog: IExerciseLog
+}
+
+export const WorkoutDetails: FC<IWorkoutDetails> = memo(({ exerciseLog }) => {
 	const navigation = useNavigate()
 
 	return (

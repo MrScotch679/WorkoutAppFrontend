@@ -1,13 +1,24 @@
-import { memo } from 'react'
+import { FC, memo } from 'react'
+import { IWorkout } from 'types/workout/workout'
 
 import styles from './WorkoutListItem.module.scss'
 
-export const WorkoutListItem = memo(({ workout, onClickCreateWorkoutLog }) => {
-	return (
-		<div className={styles.item}>
-			<button aria-label='Create new workout' onClick={onClickCreateWorkoutLog}>
-				<span>{workout.name}</span>
-			</button>
-		</div>
-	)
-})
+interface IWorkoutListItem {
+	workout: IWorkout
+	onClickCreateWorkoutLog: () => void
+}
+
+export const WorkoutListItem: FC<IWorkoutListItem> = memo(
+	({ workout, onClickCreateWorkoutLog }) => {
+		return (
+			<div className={styles.item}>
+				<button
+					aria-label='Create new workout'
+					onClick={onClickCreateWorkoutLog}
+				>
+					<span>{workout.name}</span>
+				</button>
+			</div>
+		)
+	}
+)

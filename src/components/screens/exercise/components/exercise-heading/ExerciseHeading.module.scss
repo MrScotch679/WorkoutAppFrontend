@@ -1,0 +1,9 @@
+.exerciseHeadingWrapper {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	> img {
+		height: 50px;
+	}
+}

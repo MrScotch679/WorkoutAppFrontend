@@ -21,9 +21,7 @@ import { Header } from './header/Header'
 
 interface LayoutProps extends PropsWithChildren {}
 
-export const Layout: FC<LayoutProps> = memo(props => {
-	const { children } = props
-
+export const Layout: FC<LayoutProps> = memo(({ children }) => {
 	const [backgroundImage, setBackgroundImage] = useState<string | undefined>(
 		undefined
 	)

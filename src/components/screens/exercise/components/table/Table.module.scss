@@ -50,7 +50,12 @@
 			}
 
 			> .checkbox {
+				all: unset;
 				cursor: pointer;
+				background-color: transparent;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 			}
 
 			> i {

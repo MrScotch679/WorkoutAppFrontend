@@ -1,14 +1,16 @@
+import { ScreenRoutes } from 'constants/routes/screen.routes'
+
 export const menuData = [
 	{
 		title: 'Workouts',
-		link: '/workouts'
+		link: ScreenRoutes.WORKOUTS
 	},
 	{
 		title: 'Create new',
-		link: '/new-workout'
+		link: ScreenRoutes.NEW_WORKOUT
 	},
 	{
 		title: 'Profile',
-		link: '/profile'
+		link: ScreenRoutes.PROFILE
 	}
 ]

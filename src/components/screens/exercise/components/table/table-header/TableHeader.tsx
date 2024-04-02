@@ -9,7 +9,7 @@ export const TableHeader = memo(() => {
 				<span>Previous</span>
 			</div>
 			<div>
-				<span>Repeat & Weight</span>
+				<span>Weight & Repeat</span>
 			</div>
 			<div>
 				<span>Completed</span>

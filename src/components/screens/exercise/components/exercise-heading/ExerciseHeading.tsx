@@ -4,22 +4,25 @@ import { useGetExerciseData } from '../../hooks/useGetExerciseData'
 
 import { Loader } from 'components/ui/loader/Loadder'
 
-export const ExerciseHeading = memo(() => {
-	const { data: exerciseLog, isSuccess } = useGetExerciseData()
+import styles from './ExerciseHeading.module.scss'
 
-	console.log('exerciseLog :>> ', exerciseLog)
+export const ExerciseHeading = memo(() => {
+	const { exerciseData, isSuccess } = useGetExerciseData()
 
 	return (
 		<>
 			{isSuccess ? (
 				<div className='heading-wrapper'>
-					<img
-						src={import.meta.env.VITE_API_URL + exerciseLog?.exercise?.iconPath}
-						height='34'
-						alt=''
-						draggable={false}
-					/>
-					<h1>{exerciseLog?.exercise?.name}</h1>
+					<div className={styles.exerciseHeadingWrapper}>
+						<img
+							src={
+								import.meta.env.VITE_API_URL + exerciseData?.exercise?.iconPath
+							}
+							alt=''
+							draggable={false}
+						/>
+						<h1>{exerciseData?.exercise?.name}</h1>
+					</div>
 				</div>
 			) : (
 				<Loader />

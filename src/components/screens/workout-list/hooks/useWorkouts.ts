@@ -24,7 +24,8 @@ export const useWorkouts = () => {
 		isSuccess: isSuccessWorkoutLogCreate,
 		error
 	} = useMutation(['createWorkoutLog'], WorkoutLogService.createWorkoutLog, {
-		onSuccess: ({ data }) => navigate(`${ScreenRoutes.WORKOUT}?id=${data.id}`)
+		onSuccess: ({ data }) =>
+			navigate(`${ScreenRoutes.WORKOUT}?workoutId=${data.id}`)
 	})
 
 	return useMemo(

@@ -37,11 +37,11 @@ export const imagesRoutes: Record<ScreenRoutes | string, ImagesRoutes> = {
 		headingComponent: <HeadingNewExercise />
 	},
 	[ScreenRoutes.WORKOUT]: {
-		image: '/images/workout-bg.jpg',
+		image: '/images/home-bg.jpg',
 		headingComponent: <WorkoutHeading />
 	},
 	[ScreenRoutes.WORKOUTS]: {
-		image: '/images/workout-bg.jpg',
+		image: '/images/home-bg.jpg',
 		headingComponent: <WorkoutListHeading />
 	},
 	[ScreenRoutes.EXERCISE]: {

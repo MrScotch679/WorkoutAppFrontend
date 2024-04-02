@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, InputHTMLAttributes, memo } from 'react'
-import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { RegisterOptions, UseFormRegister } from 'react-hook-form'
 
 import styles from './Field.module.scss'
 
 interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
 	registerId: string
-	register: UseFormRegister<FieldValues>
+	register: UseFormRegister<any>
 	registerOptions?: RegisterOptions
 	error?: string
 }

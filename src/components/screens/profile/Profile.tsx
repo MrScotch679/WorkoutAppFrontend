@@ -13,8 +13,11 @@ export const Profile = memo(() => {
 	return (
 		<div>
 			<div
-				className={cx(styles.wrapper, 'wrapper-inner-page')}
-				style={{ paddingLeft: 0, paddingRight: 0 }}
+				className={cx(
+					styles.wrapper,
+					'wrapper-inner-page',
+					'wrapper-no-padding'
+				)}
 			>
 				{isLoading ? (
 					<Loader />

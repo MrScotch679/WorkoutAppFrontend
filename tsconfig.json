@@ -26,7 +26,8 @@
 			"@services/*": ["/services/*"],
 			"@providers/*": ["/providers/*"],
 			"@components/*": ["/components/*"],
-			"@hooks/*": ["/hooks/*"]
+			"@hooks/*": ["/hooks/*"],
+			"@types/*": ["/types/*"]
 		}
 	},
 	"include": ["src"],

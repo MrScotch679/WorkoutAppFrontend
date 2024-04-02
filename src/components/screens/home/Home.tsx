@@ -6,10 +6,12 @@ import { Button } from 'components/ui/button/Button'
 
 import { ScreenRoutes } from 'constants/routes/screen.routes'
 
-import styles from './Home.module.scss'
-
 export const Home = memo(() => {
 	const { navigate } = useNavigation()
 
-	return <Button onClick={() => navigate(ScreenRoutes.NEW_WORKOUT)}>New</Button>
+	return (
+		<div className='wrapper-inner-page'>
+			<Button onClick={() => navigate(ScreenRoutes.NEW_WORKOUT)}>New</Button>
+		</div>
+	)
 })

@@ -24,7 +24,7 @@ export const NewWorkout = memo(() => {
 	} = useNewWorkout()
 
 	return (
-		<div className={'wrapper-inner-page'}>
+		<div className='wrapper-inner-page'>
 			{isSuccess && <Alert text='Workout was created' />}
 
 			<form onSubmit={handleSubmit(onSubmit)}>

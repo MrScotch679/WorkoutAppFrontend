@@ -1,3 +1,5 @@
+import { ICreateExercise } from 'types/methods/create-exercise'
+
 import { apiService } from '../api.service'
 
 class ExercisesService {
@@ -11,12 +13,11 @@ class ExercisesService {
 		return apiService.get(`${this.url}/${id}`)
 	}
 
-	// TODO: add types
-	createExercise = async (body: any) => {
+	createExercise = async (body: ICreateExercise) => {
 		return apiService.post(this.url, body)
 	}
 
-	updateExercise = async (id: string, body: any) => {
+	updateExercise = async (id: string, body: ICreateExercise) => {
 		return apiService.put(`${this.url}/${id}`, body)
 	}
 

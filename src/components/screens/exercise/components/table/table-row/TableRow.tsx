@@ -1,62 +1,76 @@
 import cn from 'clsx'
-import { memo } from 'react'
+import { FC, memo } from 'react'
+import { useForm } from 'react-hook-form'
+import { IBodyUpdateExerciseLog } from 'types/methods/update-exercise-log'
+import { ITimes } from 'types/times'
 
 import styles from '../Table.module.scss'
 
-export const TableRow = memo(({ item }) => {
-	const prevWeight = item.prevWeight || 0
-	const weight = item.weight || 0
+interface ITableRow {
+	item: ITimes
+	onClickSubmit: (body: IBodyUpdateExerciseLog) => void
+}
+
+export const TableRow: FC<ITableRow> = memo(({ item, onClickSubmit }) => {
+	const prevWeight = item.prevWeight
+	const weight = item.weight
 	const isCompleted = item.isCompleted
 	const rowId = item.id
 
 	const kg = <i>kg/</i>
 
+	const { register, handleSubmit } = useForm({
+		defaultValues: {
+			weight,
+			repeat: item.repeat
+		}
+	})
+
 	return (
-		<div
+		<form
+			key={`time ${rowId}`}
 			className={cn(styles.row, {
 				[styles.completed]: isCompleted
 			})}
-			key={`time ${rowId}`}
+			onSubmit={handleSubmit(data => onClickSubmit({ ...data, isCompleted }))}
 		>
 			<div className={styles.opacity} key={`Prev${rowId}/${prevWeight}`}>
 				<input type='number' defaultValue={prevWeight} disabled />
 				{kg}
-				<input type='number' defaultValue={item.prevRepeat || 0} disabled />
+				<input type='number' defaultValue={item.preRepeat} disabled />
 			</div>
 
 			<div key={`RepeatWeight ${rowId}/${weight}`}>
 				<input
-					type='tel'
-					pattern='[0-9]*'
+					type='number'
+					{...register('weight', {
+						required: 'Weight is required'
+					})}
 					defaultValue={weight}
 					disabled={isCompleted}
 				/>
 				{kg}
 				<input
 					type='number'
+					{...register('repeat', {
+						required: 'Repeat is required'
+					})}
 					defaultValue={item.repeat}
 					disabled={isCompleted}
 				/>
 			</div>
 
 			<div key={`Completed${rowId}/${isCompleted}`}>
-				<img
-					src={
-						isCompleted
-							? '/images/exercises/check-completed.svg'
-							: '/images/exercises/check.svg'
-					}
-					className={styles.checkbox}
-					alt=''
-					/* onClick={() => {
-			 changeState({
-				 timeIndex: item.id,
-				 key: 'completed',
-				 value: !item.isCompleted
-			 })
-		 }} */
-				/>
+				<button type='submit' className={styles.checkbox}>
+					<img
+						src={
+							isCompleted
+								? '/images/exercises/check-completed.svg'
+								: '/images/exercises/check.svg'
+						}
+					/>
+				</button>
 			</div>
-		</div>
+		</form>
 	)
 })
